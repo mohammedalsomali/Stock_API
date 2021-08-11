@@ -1,30 +1,22 @@
-const data = null;
-import { writeFile } from "fs";
-
-const xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener("readystatechange", function () {
-	if (this.readyState === this.DONE) {
-		// console.log(this.responseText);
-	}
-});
-
-xhr.open("GET", "https://unogsng.p.rapidapi.com/search?start_year=1972&orderby=rating&audiosubtitle_andor=and&limit=100&subtitle=english&countrylist=78%2C46&audio=english&country_andorunique=unique&offset=0&end_year=2021");
-xhr.setRequestHeader("x-rapidapi-key", "71860ee5d3msh6d874512c3d9c1ap1cf909jsn83ee5f0734c1");
-xhr.setRequestHeader("x-rapidapi-host", "unogsng.p.rapidapi.com");
-
-xhr.send(data);
 
 
-console.log(data)
+'use strict';
+import { get } from "request";
 
+// replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
+var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=MOR0CI3PU3IZ43EN/';
 
-writeFile("./object.json", JSON.stringify(xhr , null, 4), (err) => {
+get({
+    url: url,
+    json: true,
+    headers: {'BTC': 'request'}
+  }, (err, res, data) => {
     if (err) {
-        console.error(err);
-        return;
-    };
-    console.log("File has been created");
+      console.log('Error:', err);
+    } else if (res.statusCode !== 200) {
+      console.log('Status:', res.statusCode);
+    } else {
+      // data is successfully parsed as a JSON object:
+      console.log(data);
+    }
 });
-
