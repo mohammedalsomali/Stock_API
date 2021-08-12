@@ -1,22 +1,29 @@
-
-
-'use strict';
-import { get } from "request";
-
-// replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
-var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=MOR0CI3PU3IZ43EN/';
-
-get({
-    url: url,
-    json: true,
-    headers: {'BTC': 'request'}
-  }, (err, res, data) => {
-    if (err) {
-      console.log('Error:', err);
-    } else if (res.statusCode !== 200) {
-      console.log('Status:', res.statusCode);
-    } else {
-      // data is successfully parsed as a JSON object:
-      console.log(data);
-    }
+fetch("https://alpha-vantage.p.rapidapi.com/query?market=CNY&symbol=BTC&function=DIGITAL_CURRENCY_DAILY", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "71860ee5d3msh6d874512c3d9c1ap1cf909jsn83ee5f0734c1",
+		"x-rapidapi-host": "alpha-vantage.p.rapidapi.com"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
 });
+
+
+
+
+fetch("https://alpha-vantage.p.rapidapi.com/query?function=TIME_SERIES_DAILY&symbol=MSFT&outputsize=compact&datatype=json", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "71860ee5d3msh6d874512c3d9c1ap1cf909jsn83ee5f0734c1",
+		"x-rapidapi-host": "alpha-vantage.p.rapidapi.com"
+	}
+})
+.then(response => {
+  let m = JSON.stringify(response);
+  let arr = JSON.parse(m);
+	console.log(arr);
+})
