@@ -1,78 +1,53 @@
-// const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=demo';
 
 
-// function getAlphaVantagedata() {
+// fetch("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&outputsize=compact&apikey=MOR0CI3PU3IZ43EN",
+// )
+// .then(response => {
+// 	let x = response.json()
+// 	let data = JSON.stringify(x);
+	
 
-//   const apiKey = "IBM";
+// 	console.log(x);
+// 	return x
+// })
+// .then(data => {
+// 	console.log(data);
+// 	let tex = {};
+// 	for(var key in data['Time Series (Daily)']){
 
-//   const symbol = 'MOR0CI3PU3IZ43EN';
+// 		tex.key = data['Time Series (Daily)'][key]['1. open'];
 
-//   const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=' + symbol + '&interval=1min&apikey=' + apiKey;
-
-//   requestFile(url);
-
-// }
-
-
-// function requestFile(url) {
-
-//   const xhr = new XMLHttpRequest();
-//   xhr.open('GET', url, true);
-//   // xhr.onerror = function (xhr) { console.log('error:', xhr); };
-//   // xhr.onprogress = function (xhr) { console.log('bytes loaded:', xhr.loaded); }; /// or something
-//   xhr.onload = callback;
-//   // xhr.send(null);
-
-//   function callback(xhr) {
-
-//     let response, json, lines;
-
-//     response = xhr.target.response;
-//     // divContents.innerText = response;
-
-//     json = JSON.parse(response);
-
-//     console.log('json', json);
-
-//   }
-
-// }
-
-
-
-
-// const data = null;
-
-// const xhr = new XMLHttpRequest();
-// xhr.withCredentials = true;
-
-// xhr.addEventListener("readystatechange", function () {
-// 	if (this.readyState === this.DONE) {
-// 		console.log(this.responseText);
 // 	}
+// 	document.querySelector('.div').textContent = tex.;
+
+
 // });
 
-// xhr.open("GET", "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=MOR0CI3PU3IZ43EN");
-// // xhr.setRequestHeader("key ", "MOR0CI3PU3IZ43EN");
-// // xhr.setRequestHeader("x-rapidapi-host", "alpha-vantage.p.rapidapi.com");
+tex = [
+	{
+	name: 'henry',
+	age: '32',
+	car: 'yes',
+	}
 
-// xhr.send(data);
+	,
+	{
+	name: 'sam',
+	age: '30',
+	car: 'no',
+	}
+
+];
+// var y = JSON.stringify(tex);
+// console.log(y);
+// y = y.replaceAll(/{/g, ' ');
+// y = y.replaceAll(/"/g, ' ');
+// y = y.replaceAll(/:/g, ' ');
+// y = y.replaceAll(/,/g, ' ');
+// // y = y.replaceAll(/[/g, ' ');
+// y = y.replaceAll(/]/g, ' ');
+var w  = tex.slice(',')
+y = w.join(" /n ")
 
 
-
-
-fetch("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=MOR0CI3PU3IZ43EN", {
-	"method": "GET",
-	// "headers": {
-	// 	// "x-rapidapi-key": "71860ee5d3msh6d874512c3d9c1ap1cf909jsn83ee5f0734c1",
-	// 	// "x-rapidapi-host": "alpha-vantage.p.rapidapi.com"
-	// }
-})
-.then(response => {
-	console.log(response);
-})
-.then(response => {
-	console.log(response);
-
-});
-
+document.querySelector('.div').textContent = y;
