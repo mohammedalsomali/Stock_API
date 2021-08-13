@@ -4,6 +4,15 @@ const stock = document.querySelector('#stockcode');
 const btn = document.querySelector('#lookup');
 var stockcod = 0;
 var myChart;
+const datatype = document.querySelector('#subject');
+var chioce = 0;
+
+
+datatype.addEventListener('change', function(){
+	chioce = datatype.value
+	console.log(chioce);
+
+})
 
 
 
@@ -21,8 +30,8 @@ btn.addEventListener('click', function() {
 
 
 
-	if(stock.value == 0){
-		alert('inter stock code');
+	if(stock.value == 0 || chioce == 0){
+		alert('inter stock code or pick a stock market first');
 
 	}
 	else {
@@ -35,10 +44,41 @@ btn.addEventListener('click', function() {
 
 
 
-async function fetchAPI() {
+async function fetchstockAPI() {
 
 
-	await fetch("https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=BTC&market=CNY&apikey=MOR0CI3PU3IZ43EN",
+	await fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+ stockcod + '&outputsize=compact&apikey=MOR0CI3PU3IZ43EN',
+	)
+		.then(response => {
+			let x = response.json()
+			let data = JSON.stringify(x);
+
+
+			// console.log(x);
+			return x
+		})
+		.then(data => {
+			console.log(data);
+		
+			for (var key in data['Time Series (Daily)']) {
+				xval.push(key);
+				yval.push(data['Time Series (Daily)'][key]['1. open']);
+
+			}
+			// console.log(xval, yval);
+		});
+	
+
+	
+
+
+}
+
+console.log(chioce);
+async function fetchcryptoAPI() {
+
+
+	await fetch('https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=' + stockcod + '&market=USD&apikey=MOR0CI3PU3IZ43EN',
 	)
 		.then(response => {
 			let x = response.json()
@@ -58,6 +98,8 @@ async function fetchAPI() {
 			}
 			
 		});
+		// console.log(xval, yval);
+
 	
 
 	
@@ -77,8 +119,15 @@ async function sketch() {
 	
 	
 
+	if (chioce == "crypto") {
+		await fetchcryptoAPI();
+	}
+	else {
 
-	await fetchAPI();
+		await fetchstockAPI();
+
+	}
+
 	// console.log(xval, yval);
 	const ctx = document.getElementById('chart').getContext('2d');
 	myChart = new Chart(ctx, {

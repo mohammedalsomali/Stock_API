@@ -7,13 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-
+    <form name="form1" id="form1" action="/action_page.php">
+        Wall street or crypto: <select name="subject" id="subject">
+           
+            <option value="stock" selected="selected">Dialy stock data</option>
+            <option value="crypto" selected="selected">Daily crypto stock data</option>
+        </select>
+        <!-- <input type="submit" value="Submit"> -->
+    </form>
     <input id="stockcode" type="text" placeholder="enter stock code" >
     <button id="lookup"> look up</button>
-    <div id="which market do you wanna look">
-        <a id="crypto">Crypto daily stock</a>
-        <a id="dstock">daily stock</a>
-      </div>
+    
     <canvas id='chart' ></canvas>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.0/dist/chart.min.js"></script>
