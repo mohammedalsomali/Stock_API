@@ -3,11 +3,23 @@ let yval = [];
 const stock = document.querySelector('#stockcode');
 const btn = document.querySelector('#lookup');
 var stockcod = 0;
+var myChart;
+
 
 
 btn.addEventListener('click', function() {
 	
 	
+	if( typeof myChart != 'undefined'){
+		myChart.destroy();
+		xval.length = 0;
+		yval.length = 0;
+
+
+	}
+
+
+
 
 	if(stock.value == 0){
 		alert('inter stock code');
@@ -26,30 +38,27 @@ btn.addEventListener('click', function() {
 async function fetchAPI() {
 
 
-
-	await fetch("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="+ stockcod + "&outputsize=compact&apikey=MOR0CI3PU3IZ43EN",
+	await fetch("https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=BTC&market=CNY&apikey=MOR0CI3PU3IZ43EN",
 	)
 		.then(response => {
 			let x = response.json()
 			let data = JSON.stringify(x);
 
 
-			console.log(x);
+			// console.log(x);
 			return x
 		})
 		.then(data => {
 			console.log(data);
-			// let apix = [];
-			// let apiy = [];
-			for (var key in data['Time Series (Daily)']) {
+		
+			for (var key in data['Time Series (Digital Currency Daily)']) {
 				xval.push(key);
-				yval.push(data['Time Series (Daily)'][key]['1. open']);
+				yval.push(data['Time Series (Digital Currency Daily)'][key]['1b. open (USD)']);
 
 			}
-			// xval = apix;
-			// yval = apiy;
-			console.log(xval, yval);
+			
 		});
+	
 
 	
 
@@ -65,13 +74,14 @@ async function fetchAPI() {
 async function sketch() { 
 	
 	
-
+	
+	
 
 
 	await fetchAPI();
-	console.log(xval, yval);
+	// console.log(xval, yval);
 	const ctx = document.getElementById('chart').getContext('2d');
-	const myChart = new Chart(ctx, {
+	myChart = new Chart(ctx, {
 		
 		
 	
@@ -81,7 +91,7 @@ async function sketch() {
 			labels: xval,
 			datasets: [
 			{
-				label: 'stock data',
+				label: 'stock data of :' + stockcod,
 				data: yval,
 				backgroundColor: 'yellow',
 				borderWidth: 1
@@ -89,7 +99,7 @@ async function sketch() {
 		}
 
 	});
-	Chart.destroy();
+	
 	
 	
 
