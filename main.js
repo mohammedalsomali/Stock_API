@@ -10,7 +10,7 @@ var chioce = 0;
 
 datatype.addEventListener('change', function(){
 	chioce = datatype.value
-	console.log(chioce);
+	// console.log(chioce);
 
 })
 
@@ -58,7 +58,7 @@ async function fetchstockAPI() {
 			return x
 		})
 		.then(data => {
-			console.log(data);
+			// console.log(data);
 		
 			for (var key in data['Time Series (Daily)']) {
 				xval.push(key);
@@ -74,7 +74,6 @@ async function fetchstockAPI() {
 
 }
 
-console.log(chioce);
 async function fetchcryptoAPI() {
 
 
@@ -89,7 +88,7 @@ async function fetchcryptoAPI() {
 			return x
 		})
 		.then(data => {
-			console.log(data);
+			// console.log(data);
 		
 			for (var key in data['Time Series (Digital Currency Daily)']) {
 				xval.push(key);
