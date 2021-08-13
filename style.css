@@ -1,16 +1,25 @@
 *{
     padding: 0%;
     margin: 0%;
+    /* box-sizing: border-box; */
 }
 
 body{
     color-scheme: dark;
     background-color: black;
+    /* max-width: 100vh;
+    max-height: 100vh; */
     
 }
 
-#parent{
-    display: grid;
+body {
     
-    grid-template-columns: repeat(auto-fill, minmax(150, 1fr));
+    display: grid;
+    /* grid: gap 10px; */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 25%))S;
+    
+    
+
+    
+    
 }
