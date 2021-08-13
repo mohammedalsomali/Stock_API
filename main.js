@@ -1,53 +1,72 @@
 
 
-// fetch("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&outputsize=compact&apikey=MOR0CI3PU3IZ43EN",
-// )
-// .then(response => {
-// 	let x = response.json()
-// 	let data = JSON.stringify(x);
-	
+class getdata {
 
-// 	console.log(x);
-// 	return x
-// })
-// .then(data => {
-// 	console.log(data);
-// 	let tex = {};
-// 	for(var key in data['Time Series (Daily)']){
+	constructor() {
+		this.xvalues = [];
+		this.yvalues = [];
 
-// 		tex.key = data['Time Series (Daily)'][key]['1. open'];
-
-// 	}
-// 	document.querySelector('.div').textContent = tex.;
-
-
-// });
-
-tex = [
-	{
-	name: 'henry',
-	age: '32',
-	car: 'yes',
 	}
 
-	,
-	{
-	name: 'sam',
-	age: '30',
-	car: 'no',
+
+	fetchAPI() {
+		fetch("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=AMZN&outputsize=compact&apikey=MOR0CI3PU3IZ43EN",
+		)
+			.then(response => {
+				let x = response.json()
+				let data = JSON.stringify(x);
+
+
+				console.log(x);
+				return x
+			})
+			.then(data => {
+				console.log(data);
+				let apix = [];
+				let apiy = [];
+				for (var key in data['Time Series (Daily)']) {
+					apix.push(key);
+					apiy.push(data['Time Series (Daily)'][key]['1. open']);
+
+				}
+				this.xvalues = apix;
+				this.yvalues = apiy;
+
+			});
+		
+			
+
+		sketch();
 	}
 
-];
-// var y = JSON.stringify(tex);
-// console.log(y);
-// y = y.replaceAll(/{/g, ' ');
-// y = y.replaceAll(/"/g, ' ');
-// y = y.replaceAll(/:/g, ' ');
-// y = y.replaceAll(/,/g, ' ');
-// // y = y.replaceAll(/[/g, ' ');
-// y = y.replaceAll(/]/g, ' ');
-var w  = tex.slice(',')
-y = w.join(" /n ")
+
+}
 
 
-document.querySelector('.div').textContent = y;
+var stock = new getdata();
+stock.fetchAPI();
+
+
+function sketch() { 
+
+	const ctx = document.getElementById('chart').getContext('2d');
+	const myChart = new Chart(ctx, {
+
+		type: 'bar',
+		data: {
+			labels: stock.xvalues,
+			datasets: [
+			{
+				label: 'stock data',
+				data: stock.yvalues,
+				backgroundColor: ['rgba(255, 99, 132, 0.2)',],
+				borderWidth: 1
+			}]
+		}
+
+	});
+}
+
+sketch();
+
+
