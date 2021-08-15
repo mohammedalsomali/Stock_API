@@ -21,13 +21,14 @@ var Api_key = 'MOR0CI3PU3IZ43EN';
 
 stocktype.addEventListener('change', function(){
 	chioce = stocktype.value
+	change();
 	// console.log(chioce);
 
 })
 
 
 
-timeintervalch.addEventListener('change', function(){
+function change(){
 	if (timeintervalch.value == "daily"){ 
 		if (chioce == 'stock'){
 			timeInt = 'TIME_SERIES_DAILY';
@@ -59,6 +60,11 @@ timeintervalch.addEventListener('change', function(){
 		
 	}
 	// console.log(chioce);
+}
+
+timeintervalch.addEventListener('change', function(){
+	change();
+	
 
 })
 
@@ -139,7 +145,7 @@ async function fetchstockAPI() {
 			console.log(xval, yval);
 		});
 
-		interval = '';
+		// interval = '';
 	
 
 	
