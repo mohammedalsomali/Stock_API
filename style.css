@@ -6,30 +6,27 @@
 body{
     color-scheme: dark;
     background-color: black;
-    max-width: 100vh;
-    max-height: 100vh;
+    /* display: grid; */
+    /* grid-template-columns: minmax(180px, 25%) auto; */
+    /* max-width: 100vh;
+    max-height: 100vh; */
     
 }
 
 
 
-.parent {
+.left {
+    float: left;
     display: grid;
-    grid-template-columns: minmax(180px, 25%) auto;
-    /* height: 100vh;
-    width: 100vh; */
       
 }
 
 /* #right {
-    /* position: relative;
+    position: relative;
     flex-grow: 1;
-    min-height: 0; */
-    /* height: 100%; */
-    /* width: 100%; */
+    min-height: 0;
+    height: 100%;
+    width: 100%;
     
 
-/* }  */ */
-
-
-
+}   */

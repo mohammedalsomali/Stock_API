@@ -61,8 +61,8 @@ async function fetchstockAPI() {
 			// console.log(data);
 		
 			for (var key in data['Time Series (Daily)']) {
-				xval.push(key);
-				yval.push(data['Time Series (Daily)'][key]['1. open']);
+				xval.unshift(key);
+				yval.unshift(data['Time Series (Daily)'][key]['1. open']);
 
 			}
 			// console.log(xval, yval);
@@ -91,8 +91,8 @@ async function fetchcryptoAPI() {
 			// console.log(data);
 		
 			for (var key in data['Time Series (Digital Currency Daily)']) {
-				xval.push(key);
-				yval.push(data['Time Series (Digital Currency Daily)'][key]['1b. open (USD)']);
+				xval.unshift(key);
+				yval.unshift(data['Time Series (Digital Currency Daily)'][key]['1b. open (USD)']);
 
 			}
 			
