@@ -1,32 +1,38 @@
 *{
     padding: 0%;
     margin: 0%;
-    /* box-sizing: border-box; */
 }
 
 body{
     color-scheme: dark;
     background-color: black;
-    /* max-width: 100vh;
-    max-height: 100vh; */
+    max-width: 100vh;
+    max-height: 100vh;
     
 }
 
-body {
-    
+
+
+.parent {
     display: grid;
-    /* grid: gap 10px; */
-    grid-template-columns: repeat(auto-fill, minmax(150px, 25%))S;
-    
-    
-
-    
-    
+    grid-template-columns: minmax(150px, 25%) auto;
+    height: 100vh;
+    /* width: 100vh; */
 }
 
 
-#form1 {
-    
+
+#right {
     float: left;
     
+
 }
+
+/* #chart {
+    display: block;
+    block-size: 80vh;
+    /* width: relative; */
+    /* height: 100%; */
+    /* object-fit: contain; */
+      
+/* } */ 

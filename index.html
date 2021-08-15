@@ -8,21 +8,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <form name="form1" id="form1" action="/action_page.php" style="border: 10px;">
-            stocks or crypto:
-            <select name="subject" id="subject">
-                <option value="stock" selected="selected">Dialy stock data</option>
-                <option value="crypto" selected="selected">Daily crypto stock data</option>
-                <option value="" disabled selected>select your option</option>
+    <div class="parent">
+        <div>
+            <form name="form1" id="form1" action="/action_page.php" style="border: 10px;">
+                stocks or crypto:
+                <select name="subject" id="subject">
+                    <option value="stock" selected="selected">Dialy stock data</option>
+                    <option value="crypto" selected="selected">Daily crypto stock data</option>
+                    <option value="" disabled selected>select your option</option>
     
-            </select>
-            <!-- <input type="submit" value="Submit"> -->
-        </form>
-        <input id="stockcode" type="text" placeholder="enter stock code">
-        <button id="lookup"> look up</button>
+                </select>
+                <!-- <input type="submit" value="Submit"> -->
+            </form>
+            <input id="stockcode" type="text" placeholder="enter stock code">
+            <button id="lookup"> look up</button>
+        </div>
+        <div>
+            <canvas id='chart'></canvas>
+        </div>
     </div>
-    <canvas id='chart'   ></canvas>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.0/dist/chart.min.js"></script>
     <script type="text/javascript"  src="main.js"></script>

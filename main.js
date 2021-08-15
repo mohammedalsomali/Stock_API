@@ -128,7 +128,15 @@ async function sketch() {
 	}
 
 	// console.log(xval, yval);
-	const ctx = document.getElementById('chart').getContext('2d');
+	const win = document.getElementById('chart');
+	window.addEventListener('resize', () => {
+		win.width = window.width;
+		win.hieght = window.hieght;
+
+	})
+	
+	const ctx = win.getContext('2d');
+	
 	myChart = new Chart(ctx, {
 		
 		
@@ -143,7 +151,7 @@ async function sketch() {
 				data: yval,
 				backgroundColor: 'yellow',
 				borderColor: 'rgb(75, 192, 192)',
-				borderWidth: 1
+				// borderWidth: 1
 			}]
 		}
 
