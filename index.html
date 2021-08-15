@@ -11,16 +11,34 @@
     <!-- <div class="parent"> -->
         <div class="left">
             <form name="form1" id="form1" action="/action_page.php" style="border: 10px;">
-                stocks or crypto:
+                <h1 style="color: aliceblue;"> What do you wanna look up:</h1>
                 <select name="subject" id="subject">
+                    <option value="stock" selected="selected">stock data</option>
+                    <option value="crypto" selected="selected">crypto stock data</option>
+                    <option value="" disabled selected>select stock or crypto</option>
+    
+                </select>
+                <select name="subject" id="timeint">
+                    <option value="daily" selected="selected">Dialy</option>
+                    <option value="hourly" selected="selected">Hourly</option>
+                    <option value="" disabled selected>select time interval</option>
+    
+                </select>
+                <select name="subject" id="history">
+                    <option value="compact" selected="selected">past 100 entries</option>
+                    <option value="full" selected="selected">past 20 years</option>
+                    <option value="" disabled selected>select full history or past 100</option>
+    
+                </select>
+                <select name="subject" id="API">
                     <option value="stock" selected="selected">Dialy stock data</option>
                     <option value="crypto" selected="selected">Daily crypto stock data</option>
-                    <option value="" disabled selected>select your option</option>
+                    <option value="" disabled selected>optional inter personal API key</option>
     
                 </select>
                 <!-- <input type="submit" value="Submit"> -->
             </form>
-            <input id="stockcode" type="text" placeholder="enter stock code">
+            <input id="stockcode" type="text" placeholder="enter company code">
             <button id="lookup"> look up</button>
         </div>
         <div class="right">
