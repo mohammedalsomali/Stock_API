@@ -15,24 +15,21 @@ body{
 
 .parent {
     display: grid;
-    grid-template-columns: minmax(150px, 25%) auto;
-    height: 100vh;
-    /* width: 100vh; */
+    grid-template-columns: minmax(180px, 25%) auto;
+    /* height: 100vh;
+    width: 100vh; */
+      
 }
 
-
-
-#right {
-    float: left;
+/* #right {
+    /* position: relative;
+    flex-grow: 1;
+    min-height: 0; */
+    /* height: 100%; */
+    /* width: 100%; */
     
 
-}
+/* }  */ */
 
-/* #chart {
-    display: block;
-    block-size: 80vh;
-    /* width: relative; */
-    /* height: 100%; */
-    /* object-fit: contain; */
-      
-/* } */ 
+
+

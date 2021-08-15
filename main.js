@@ -129,11 +129,6 @@ async function sketch() {
 
 	// console.log(xval, yval);
 	const win = document.getElementById('chart');
-	window.addEventListener('resize', () => {
-		win.width = window.width;
-		win.hieght = window.hieght;
-
-	})
 	
 	const ctx = win.getContext('2d');
 	
@@ -151,7 +146,9 @@ async function sketch() {
 				data: yval,
 				backgroundColor: 'yellow',
 				borderColor: 'rgb(75, 192, 192)',
-				// borderWidth: 1
+				borderWidth: 1,
+				responsive: true,
+				maintainAspectRatio: false
 			}]
 		}
 
