@@ -14,7 +14,7 @@ var interval = '';
 var openor;
 var chioce = 0;
 var timeInt = 0;
-var history = 0;
+var history1 = 0;
 var Api_key = 'MOR0CI3PU3IZ43EN';
 
 
@@ -70,14 +70,14 @@ timeintervalch.addEventListener('change', function(){
 
 
 historych.addEventListener('change', function(){
-	if (historych.value == 'full'){
-		history = 'full';
+	if (historych.value == "full"){
+		history1 = historych.value;
 	}
 	else {
-		history = 'compact';
+		history1 = historych.value;
 
 	}
-	// console.log(chioce);
+	console.log(history1);
 
 })
 
@@ -121,7 +121,7 @@ btn.addEventListener('click', function() {
 async function fetchstockAPI() {
 
 
-	await fetch('https://www.alphavantage.co/query?function=' + timeInt + '&symbol=' + stockcod + interval + '&outputsize= ' + history + '&apikey=' + Api_key ,
+	await fetch('https://www.alphavantage.co/query?function=' + timeInt + '&symbol=' + stockcod + interval + '&outputsize=' + history1 + '&apikey=' + Api_key ,
 	)
 		.then(response => {
 			let x = response.json()
@@ -156,7 +156,7 @@ async function fetchstockAPI() {
 async function fetchcryptoAPI() {
 
 
-	await fetch('https://www.alphavantage.co/query?function=' + timeInt + '&symbol=' + stockcod + '&market=USD' + interval + '&apikey=' + Api_key,
+	await fetch('https://www.alphavantage.co/query?function=' + timeInt + '&symbol=' + stockcod + '&market=USD' + interval + '&outputsize=' + history1 + '&apikey=' + Api_key,
 	)
 		.then(response => {
 			let x = response.json()
