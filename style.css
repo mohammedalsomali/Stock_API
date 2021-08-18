@@ -44,7 +44,7 @@ body{
 
 #form1 {
     display: inline-block;
-
+    box-sizing: border-box;
     
     vertical-align: middle; 
 
