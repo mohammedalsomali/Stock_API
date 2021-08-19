@@ -23,6 +23,7 @@ body{
     width: 25%;
     background-color: teal;
     display: block;
+    overflow-x: hidden;
     /* float: left; */
     /* display: flex;
     flex-wrap: wrap; */
@@ -42,10 +43,15 @@ body{
 }  
 
 
-#form1 {
+/* #form1 {
     display: inline-block;
     box-sizing: border-box;
     
     vertical-align: middle; 
 
+} */
+
+
+#subject, #timeint, #history, #API_key {
+    width: 100%;
 }

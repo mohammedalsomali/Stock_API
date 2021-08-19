@@ -77,7 +77,7 @@ historych.addEventListener('change', function(){
 		history1 = historych.value;
 
 	}
-	console.log(history1);
+	// console.log(history1);
 
 })
 
@@ -142,7 +142,7 @@ async function fetchstockAPI() {
 				yval.unshift(data[sear][key]['1. open']);
 
 			}
-			console.log(xval, yval);
+			// console.log(xval, yval);
 		});
 
 		// interval = '';
@@ -178,7 +178,7 @@ async function fetchcryptoAPI() {
 			}
 			
 		});
-		console.log(xval, yval);
+		// console.log(xval, yval);
 
 	
 
