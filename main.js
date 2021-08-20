@@ -130,14 +130,14 @@ async function fetchstockAPI() {
 			yval.length = 0;
 
 
-			console.log(x);
+			// console.log(x);
 			return x
 		})
 		.then(data => {
-			console.log(data);
+			// console.log(data);
 		
 			for (var key in data[sear]) {
-				console.log(0);
+				// console.log(0);
 				xval.unshift(key);
 				yval.unshift(data[sear][key]['1. open']);
 
@@ -164,8 +164,8 @@ async function fetchcryptoAPI() {
 			xval.length = 0;
 			yval.length = 0;
 
-			console.log(x);
-			console.log(data);
+			// console.log(x);
+			// console.log(data);
 			return x
 		})
 		.then(data => {
@@ -229,10 +229,40 @@ async function sketch() {
 				borderColor: 'rgb(75, 192, 192)',
 				borderWidth: 1,
 				responsive: true,
-				maintainAspectRatio: false
+				maintainAspectRatio: false,
+				tension: 0.1
 			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			// Container for pan options
+			pan: {
+				// Boolean to enable panning
+				enabled: true,
+	
+				// Panning directions. Remove the appropriate direction to disable 
+				// Eg. 'y' would only allow panning in the y direction
+				mode: 'x',
+	
+				speed: 1
+			},
+	
+			// Container for zoom options
+			zoom: {
+				// Boolean to enable zooming
+				enabled: true,                      
+				// Zooming directions. Remove the appropriate direction to disable 
+				// Eg. 'y' would only allow zooming in the y direction
+				mode: 'x',
+			}
 		}
-
+		
 	});
 	
 	
