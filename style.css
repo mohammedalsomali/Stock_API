@@ -91,7 +91,7 @@ body{
 }
 
 /* On mouse-over */
-.sidenav a:hover, .dropdown-btn:hover, .Btn:hover {
+.sidenav a:hover, .dropdown-btn:hover, .Btn:hover, .stockBtn:hover, .cryptoBtn:hover, .dailyBtn:hover, .hourlyBtn:hover {
   color: #ffffff;
 }
 
@@ -129,19 +129,19 @@ ul {
   /* color: #351f21; */
 }
 
-.Btn {
+.Btn, .stockBtn, .cryptoBtn, .dailyBtn, .hourlyBtn  {
   color: #818181;
 }
 
 
 input[type=text] {
-  width: 100px;
+  width: 150px;
   height: 30px;
-  -webkit-transition: width 0.5s ease-in-out;
+  /* -webkit-transition: width 0.5s ease-in-out;
   transition: width 0.5s ease-in-out;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 5; */
   /* border-radius: 10px; */
   
 }
@@ -161,10 +161,7 @@ h1 {
  
 }
 
-.icon {
-  padding: 10px;
-  background: dodgerblue;
-  color: white;
-  min-width: 50px;
-  text-align: center;
+
+.inpbox {
+  display: block;
 }

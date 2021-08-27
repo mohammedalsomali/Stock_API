@@ -1,13 +1,13 @@
 let xval = [];
 let yval = [];
 const stock = document.querySelector('#stockcode');
-const btn = document.querySelector('#lookup');
+const btn = document.querySelector('.searchbtn');
 var stockcod = 0;
 var myChart;
-const stocktype = document.querySelector('#subject');
-const timeintervalch = document.querySelector('#timeint');
-const historych = document.querySelector('#history');
-const personalAPIch = document.querySelector('#API');
+// const stocktype = document.querySelector('#subject');
+var timeinterval;
+// const historych = document.querySelector('#history');
+// const personalAPIch = document.querySelector('#API');
 
 var sear = '';
 var interval = '';
@@ -18,9 +18,29 @@ var history1 = 0;
 var Api_key = 'MOR0CI3PU3IZ43EN';
 
 
+const daily = document.querySelector('.dailyBtn');
+const hourly = document.querySelector('.hourlyBtn');
+const stockb = document.querySelector('.stockBtn');
+const crypto = document.querySelector('.cryptoBtn');
 
-stocktype.addEventListener('change', function(){
-	chioce = stocktype.value
+
+
+
+
+
+
+daily.addEventListener('click', function(){
+	timeinterval = 'daily'
+	console.log(timeinterval);
+	change();
+	// console.log(chioce);
+
+})
+
+hourly.addEventListener('click', function(){
+	timeinterval = 'hourly'
+	console.log(timeinterval);
+
 	change();
 	// console.log(chioce);
 
@@ -28,8 +48,26 @@ stocktype.addEventListener('change', function(){
 
 
 
+stockb.addEventListener('click', function(){
+	chioce = 'stock'
+	console.log(chioce);
+
+	change();
+	// console.log(chioce);
+
+})
+
+crypto.addEventListener('click', function(){
+	chioce = 'crypto'
+	change();
+	console.log(chioce);
+
+})
+
+
+
 function change(){
-	if (timeintervalch.value == "daily"){ 
+	if (timeinterval == "daily"){ 
 		if (chioce == 'stock'){
 			timeInt = 'TIME_SERIES_DAILY';
 			sear = 'Time Series (Daily)';
@@ -44,7 +82,7 @@ function change(){
 		
 
 	}
-	else if (timeintervalch.value == "hourly"){
+	else if (timeinterval == "hourly"){
 		interval = '&interval=60min';
 		if (chioce == 'stock'){
 			timeInt = 'TIME_SERIES_INTRADAY';
@@ -62,32 +100,32 @@ function change(){
 	// console.log(chioce);
 }
 
-timeintervalch.addEventListener('change', function(){
-	change();
+// timeintervalch.addEventListener('change', function(){
+// 	change();
 	
 
-})
+// })
 
 
-historych.addEventListener('change', function(){
-	if (historych.value == "full"){
-		history1 = historych.value;
-	}
-	else {
-		history1 = historych.value;
+// historych.addEventListener('change', function(){
+// 	if (historych.value == "full"){
+// 		history1 = historych.value;
+// 	}
+// 	else {
+// 		history1 = historych.value;
 
-	}
-	// console.log(history1);
+// 	}
+// 	// console.log(history1);
 
-})
+// })
 
 
 
-personalAPIch.addEventListener('change', function(){
-	// Api_key = personalAPIch.value
-	// console.log(chioce);
+// personalAPIch.addEventListener('change', function(){
+// 	Api_key = personalAPIch.value
+// 	console.log(chioce);
 
-})
+// })
 
 
 
@@ -104,7 +142,7 @@ btn.addEventListener('click', function() {
 
 
 
-	if(stock.value == 0 || chioce == 0 || timeInt == 0 || history == 0){
+	if(stock.value == 0 || chioce == 0 || timeInt == 0 ){
 		alert('inter stock code/ pick a stock market first/ a time interval/  history');
 
 	}
@@ -112,7 +150,8 @@ btn.addEventListener('click', function() {
 		stockcod = stock.value;
 		sketch();
 	}
-	
+	// sketch();
+
 
 } )
 
@@ -121,7 +160,7 @@ btn.addEventListener('click', function() {
 async function fetchstockAPI() {
 
 
-	await fetch('https://www.alphavantage.co/query?function=' + timeInt + '&symbol=' + stockcod + interval + '&outputsize=' + history1 + '&apikey=' + Api_key ,
+	await fetch('https://www.alphavantage.co/query?function=' + daily + '&symbol=' + stockcod + interval + '&outputsize=' + 'combact' + '&apikey=' + Api_key ,
 	)
 		.then(response => {
 			let x = response.json()
@@ -156,7 +195,7 @@ async function fetchstockAPI() {
 async function fetchcryptoAPI() {
 
 
-	await fetch('https://www.alphavantage.co/query?function=' + timeInt + '&symbol=' + stockcod + '&market=USD' + interval + '&outputsize=' + history1 + '&apikey=' + Api_key,
+	await fetch('https://www.alphavantage.co/query?function=' + timeInt + '&symbol=' + stockcod + '&market=USD' + interval + '&outputsize=' + 'combact' + '&apikey=' + Api_key,
 	)
 		.then(response => {
 			let x = response.json()

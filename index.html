@@ -26,21 +26,21 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <ul><button class="Btn" style=" background: none; border: none; font-size: larger;">Wall Street Market
+                <button class="stockBtn" style=" background: none; border: none; font-size: larger;">Wall Street Market
                         <!-- <i class="fa fa-caret-down"></i> -->
-                    </button> </ul>
-                <ul><button class="Btn" style=" background: none; border: none; font-size: larger;">cryptocurrency
+                    </button> 
+                <button class="cryptoBtn" style=" background: none; border: none; font-size: larger;">cryptocurrency
                         Market
                         <!-- <i class="fa fa-caret-down"></i> -->
-                    </button> </ul>
+                    </button>
             </div><button class="dropdown-btn">Time Period
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <ul><button class="Btn" style=" background: none; border: none; font-size: larger;">Daily
+                <ul><button class="dailyBtn" style=" background: none; border: none; font-size: larger;">Daily
                         <!-- <i class="fa fa-caret-down"></i> -->
                     </button> </ul>
-                <ul><button class="Btn" style=" background: none; border: none; font-size: larger;">Hourly
+                <ul><button class="hourlyBtn" style=" background: none; border: none; font-size: larger;">Hourly
                         <!-- <i class="fa fa-caret-down"></i> -->
                     </button> </ul>
             </div><button class="dropdown-btn">News
@@ -71,16 +71,16 @@
 
 
             </div>
-            <div>
-                <input type="text" placeholder="Search..">
+            <div class="inpbox">
+                <input id='stockcode' type="text" placeholder="Search..">
                 <button class="searchbtn" type="submit" style="background: none;"><i class="fa fa-search-dollar fa-2x" ></i></button>
             </div>
 
         </div>
     </div>
     <div class="right">
-        <div style="background-color: blue;"></div>
-        <div style="background-color: brown;"><canvas id='chart'></canvas></div>
+        <div style="background-color: blue;"><canvas id='chart'></canvas></div>
+        <div style="background-color: brown;"></div>
     
     </div>
 
