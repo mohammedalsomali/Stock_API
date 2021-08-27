@@ -34,11 +34,13 @@ body{
 .right {
     
     width: 85%;
+    display: grid;
+    grid-row: inherit;
     /* float: left; */
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center; 
-    justify-content: center;
+    /* display: flex;
+    flex-wrap: wrap; */
+    /* align-items: center; 
+    justify-content: center; */
 
 }  
 
@@ -133,10 +135,10 @@ ul {
 
 
 input[type=text] {
-  /* width: 100px; */
+  width: 100px;
   height: 30px;
-  -webkit-transition: width 0.9s ease-in-out;
-  transition: width 0.9s ease-in-out;
+  -webkit-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
   top: 0;
   left: 0;
   z-index: 5;
@@ -145,9 +147,9 @@ input[type=text] {
 }
 
 /* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-  width: 90%;
-}
+/* input[type=text]:focus {
+  width: 50%;
+} */
 
 
 h1 {
@@ -157,4 +159,12 @@ h1 {
   font-size: 3em;
   text-shadow: -1px 0 #4666FF, 0 1px 0 #4666FF, 1px 0 #4666FF, 0 -1px #4666FF;
  
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
 }

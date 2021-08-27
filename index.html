@@ -14,14 +14,14 @@
 
     <div class="left">
         
-        <!-- <span class="fas fa-search-dollar fa-2x" style="color: green; padding-bottom: 10px;"></span>
-        <span class="fas fa-search-dollar fa-2x" style="color: green; padding-bottom: 10px;"></span> -->
-        <h1> Stock LookUp         <span class="fa fa-search-dollar fa-1x" style="color: green; padding-bottom: 10px;"></span> </h1>
+        
+        <h1> Stock LookUp   
+            <!-- <span class="fa fa-search-dollar fa-1x" style="color: green; padding-bottom: 10px;"></span> -->
+        </h1>
 
         
         <div class="topnav" id="myTopnav">
             
-            <input type="text" placeholder="Search..">
             <button class="dropdown-btn">Market
                 <i class="fa fa-caret-down"></i>
             </button>
@@ -65,28 +65,29 @@
                         <!-- <i class="fa fa-caret-down"></i> -->
                     </button> </ul>
                 <ul><button class="Btn" style=" background: none; border: none; font-size: larger;">cryptocurrency
-                        Market Market
+                        Market 
                         <!-- <i class="fa fa-caret-down"></i> -->
                     </button> </ul>
 
 
             </div>
-            
+            <div>
+                <input type="text" placeholder="Search..">
+                <button class="searchbtn" type="submit" style="background: none;"><i class="fa fa-search-dollar fa-2x" ></i></button>
+            </div>
 
         </div>
     </div>
     <div class="right">
-    
-        <canvas id='chart'></canvas>
+        <div style="background-color: blue;"></div>
+        <div style="background-color: brown;"><canvas id='chart'></canvas></div>
     
     </div>
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.0/dist/chart.min.js"></script> -->
         <script type="text/javascript" src="main.js"></script>
         <script type="text/javascript" src="styling.js"></script>
-        <!-- <script src="path/to/chartjs/dist/chart.min.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>
