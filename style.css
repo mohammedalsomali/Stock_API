@@ -155,9 +155,6 @@ h1 {
   font-weight: 900;
   font-style: italic;
   font-size: 3em;
-  text-decoration: solid;
-
-  text-decoration-thickness: 1em;
-  text-decoration-color: #ffffff;
-  color: blueviolet;
+  text-shadow: -1px 0 #4666FF, 0 1px 0 #4666FF, 1px 0 #4666FF, 0 -1px #4666FF;
+ 
 }
