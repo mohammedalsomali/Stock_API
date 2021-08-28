@@ -32,7 +32,9 @@ const crypto = document.querySelector('.cryptoBtn');
 
 daily.addEventListener('click', function(){
 	timeinterval = 'daily'
-	console.log(timeinterval);
+	// console.log(timeinterval);
+	hourly.style.color = '';
+	daily.style.color = 'white';
 	change();
 	// console.log(chioce);
 
@@ -40,7 +42,11 @@ daily.addEventListener('click', function(){
 
 hourly.addEventListener('click', function(){
 	timeinterval = 'hourly'
-	console.log(timeinterval);
+	// console.log(timeinterval);
+	hourly.style.color = 'white';
+	daily.style.color = '';
+
+
 
 	change();
 	// console.log(chioce);
@@ -52,7 +58,8 @@ hourly.addEventListener('click', function(){
 stockb.addEventListener('click', function(){
 	chioce = 'stock'
 	console.log(chioce);
-
+	crypto.style.color = '';
+	stockb.style.color = 'white';
 	change();
 	// console.log(chioce);
 
@@ -61,7 +68,9 @@ stockb.addEventListener('click', function(){
 crypto.addEventListener('click', function(){
 	chioce = 'crypto'
 	change();
-	console.log(chioce);
+	// console.log(chioce);
+	crypto.style.color = 'white';
+	stockb.style.color = '';
 
 })
 
@@ -271,7 +280,7 @@ async function sketch() {
 			{
 				label: 'stock data of :' + stockname,
 				data: yval,
-				backgroundColor: 'yellow',
+				backgroundColor: 'white',
 				borderColor: 'rgb(75, 192, 192)',
 				borderWidth: 1,
 				responsive: true,
@@ -337,26 +346,40 @@ async function fetchnewsAPI() {
 			return x
 		})
 		.then(data => {
-			console.log(data.articles);
+			// console.log(data.articles);
 			for (var i = 0; i < data.articles.length; ++i) {
 				console.log(data.articles[i].title);
-				var array_ele = document.createElement("a");
+				var array_div = document.createElement("div");
 				var array_ele1 = document.createElement("img");
+				var array_title = document.createElement("h1");
+				var array_a = document.createElement("a");
+
+				var array_sum = document.createElement("summary");
+				
+
 				// array_ele.style.width = 10 + 'px';
 
 				
-				array_ele.classList.add("block");
+				array_div.classList.add("block");
 				array_ele1.classList.add("blockimg");
-				array_ele.href = data.articles[i].url;
-				array_ele.innerHTML = data.articles[i].title;
+				array_a.innerText = data.articles[i].title;
+				array_a.href = data.articles[i].url;
+				array_sum.innerText = data.articles[i].description;
+
 				array_ele1.src = data.articles[i].urlToImage;
-				array_ele1.style.width = `${30}px`;
-				array_ele1.style.height = `${30}px`;
-				
+				array_ele1.style.width = `${100}px`;
+				array_ele1.style.height = `${100}px`;
+				array_title.style.display = 'flex';
+				console.log(data.articles[i].url, typeof data.articles[i].url );
 			  
-				
-				container.appendChild(array_ele1);
-				container.appendChild(array_ele);
+				array_title.appendChild(array_ele1);
+				array_title.appendChild(array_a);
+				array_div.appendChild(array_title);
+				array_div.appendChild(array_sum);
+				// array_div.appendChild(array_ele1);
+
+				container.appendChild(array_div);
+				// container.appendChild(array_ele);
 				
 			
 			   
