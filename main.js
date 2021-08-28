@@ -9,7 +9,7 @@ var myChart;
 var timeinterval;
 // const historych = document.querySelector('#history');
 // const personalAPIch = document.querySelector('#API');
-
+var stockname;
 var sear = '';
 var interval = '';
 var openor;
@@ -176,6 +176,10 @@ async function fetchstockAPI() {
 		})
 		.then(data => {
 			// console.log(data);
+			stockname = stockcod;
+			
+			
+
 		
 			for (var key in data[sear]) {
 				// console.log(0);
@@ -210,7 +214,8 @@ async function fetchcryptoAPI() {
 			return x
 		})
 		.then(data => {
-		
+			// console.log(data['Meta Data']['3. Digital Currency Name']);
+			stockname = data['Meta Data']['3. Digital Currency Name'];
 			for (var key in data[sear]) {
 				// console.log(0);
 				xval.unshift(key);
@@ -264,7 +269,7 @@ async function sketch() {
 			labels: xval,
 			datasets: [
 			{
-				label: 'stock data of :' + stockcod,
+				label: 'stock data of :' + stockname,
 				data: yval,
 				backgroundColor: 'yellow',
 				borderColor: 'rgb(75, 192, 192)',
@@ -328,23 +333,29 @@ async function fetchnewsAPI() {
 			let x = response.json()
 			let data = JSON.stringify(x);
 			
-			console.log(data);
+			// console.log(data);
 			return x
 		})
 		.then(data => {
-			// console.log(data.articles);
+			console.log(data.articles);
 			for (var i = 0; i < data.articles.length; ++i) {
 				console.log(data.articles[i].title);
-				var array_ele = document.createElement("div");
+				var array_ele = document.createElement("a");
+				var array_ele1 = document.createElement("img");
 				// array_ele.style.width = 10 + 'px';
 
 				
 				array_ele.classList.add("block");
-			  
-				array_ele.innerHTML = 1 + i + '- ' + data.articles[i].title ;
+				array_ele1.classList.add("blockimg");
+				array_ele.href = data.articles[i].url;
+				array_ele.innerHTML = data.articles[i].title;
+				array_ele1.src = data.articles[i].urlToImage;
+				array_ele1.style.width = `${30}px`;
+				array_ele1.style.height = `${30}px`;
 				
 			  
 				
+				container.appendChild(array_ele1);
 				container.appendChild(array_ele);
 				
 			
