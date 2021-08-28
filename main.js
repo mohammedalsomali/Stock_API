@@ -2,6 +2,7 @@ let xval = [];
 let yval = [];
 const stock = document.querySelector('#stockcode');
 const btn = document.querySelector('.searchbtn');
+var container = document.querySelector('.newsdiv');
 var stockcod = 0;
 var myChart;
 // const stocktype = document.querySelector('#subject');
@@ -149,6 +150,7 @@ btn.addEventListener('click', function() {
 	else {
 		stockcod = stock.value;
 		sketch();
+		fetchnewsAPI();
 	}
 	// sketch();
 
@@ -160,7 +162,7 @@ btn.addEventListener('click', function() {
 async function fetchstockAPI() {
 
 
-	await fetch('https://www.alphavantage.co/query?function=' + daily + '&symbol=' + stockcod + interval + '&outputsize=' + 'combact' + '&apikey=' + Api_key ,
+	await fetch('https://www.alphavantage.co/query?function=' + timeInt + '&symbol=' + stockcod + interval + '&outputsize=' + 'combact' + '&apikey=' + Api_key ,
 	)
 		.then(response => {
 			let x = response.json()
@@ -314,4 +316,50 @@ async function sketch() {
 
 
 
+// 27ebb9c1d2d14584869cfe9184a24f6a
+
+
+async function fetchnewsAPI() {
+
+
+	await fetch('https://newsapi.org/v2/everything?q=' + stockcod + '&from=2021-07-28&sortBy=publishedAt&apiKey=27ebb9c1d2d14584869cfe9184a24f6a',
+	)
+		.then(response => {
+			let x = response.json()
+			let data = JSON.stringify(x);
+			
+			console.log(data);
+			return x
+		})
+		.then(data => {
+			// console.log(data.articles);
+			for (var i = 0; i < data.articles.length; ++i) {
+				console.log(data.articles[i].title);
+				var array_ele = document.createElement("div");
+				// array_ele.style.width = 10 + 'px';
+
+				
+				array_ele.classList.add("block");
+			  
+				array_ele.innerHTML = 1 + i + '- ' + data.articles[i].title ;
+				
+			  
+				
+				container.appendChild(array_ele);
+				
+			
+			   
+			  
+
+			}
+			
+		});
+		
+
+	
+
+	
+
+
+}
 

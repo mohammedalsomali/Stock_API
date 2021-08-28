@@ -34,8 +34,8 @@ body{
 .right {
     
     width: 85%;
-    display: grid;
-    grid-row: inherit;
+    /* display: grid;
+    grid-template-rows: 0.5fr; */
     /* float: left; */
     /* display: flex;
     flex-wrap: wrap; */
