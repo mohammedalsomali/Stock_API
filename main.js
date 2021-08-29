@@ -57,7 +57,7 @@ hourly.addEventListener('click', function(){
 
 stockb.addEventListener('click', function(){
 	chioce = 'stock'
-	console.log(chioce);
+	// console.log(chioce);
 	crypto.style.color = '';
 	stockb.style.color = 'white';
 	change();
