@@ -336,7 +336,7 @@ async function sketch() {
 async function fetchnewsAPI() {
 
 
-	await fetch('https://newsapi.org/v2/everything?q=' + stockcod + '&from=2021-07-28&sortBy=publishedAt&apiKey=27ebb9c1d2d14584869cfe9184a24f6a',
+	await fetch('https://newsapi.org/v2/everything?q=' + stockcod + '&from=2021-07-29&sortBy=publishedAt&apiKey=27ebb9c1d2d14584869cfe9184a24f6a',
 	)
 		.then(response => {
 			let x = response.json()
@@ -396,4 +396,3 @@ async function fetchnewsAPI() {
 
 
 }
-

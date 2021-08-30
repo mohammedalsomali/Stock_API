@@ -135,8 +135,8 @@ ul {
 
 
 input[type=text] {
-  width: 150px;
-  height: 30px;
+  width: 140px;
+  height: 30px; 
   /* -webkit-transition: width 0.5s ease-in-out;
   transition: width 0.5s ease-in-out;
   top: 0;
@@ -165,3 +165,43 @@ h1 {
 .inpbox {
   display: block;
 }
+
+
+/* .searchbtn {
+  width: 300px;
+  height: 30px;
+} */
+
+
+/* * {
+  box-sizing: border-box;
+} */
+
+/* Style the search field */
+/* #stockcode {
+
+  float: left;
+  width: 10%;
+  
+} */
+
+/* Style the submit button */
+.searchbtn {
+  float: right;
+  width: 25%;
+  height: 35px;
+  background: #4666FF;
+  color: white;
+  cursor: pointer;
+}
+
+.searchbtn:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+/* form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+} */
