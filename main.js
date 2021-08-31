@@ -71,7 +71,14 @@ stockb.addEventListener('click', function(){
 
 
 openb.addEventListener('click', function(){
-	priceval = '1. open';
+	if (chioce == 'stock'  || timeinterval == 'hourly') {
+		priceval = '1. open';
+
+	}
+	else{
+		priceval = '1b. open (USD)';
+
+	}
 	openb.style.color = 'white';
 	closeb.style.color = '';
 	highb.style.color = '';
@@ -80,7 +87,13 @@ openb.addEventListener('click', function(){
 })
 
 closeb.addEventListener('click', function(){
-	priceval = '4. close';
+	if (chioce == 'stock' || timeinterval == 'hourly') {
+		priceval = '4. close';
+	}
+	else{
+		priceval = '4b. close (USD)';
+
+	}
 	openb.style.color = '';
 	closeb.style.color = 'white';
 	highb.style.color = '';
@@ -90,7 +103,14 @@ closeb.addEventListener('click', function(){
 
 
 highb.addEventListener('click', function(){
-	priceval = '2. high';
+	if (chioce == 'stock' || timeinterval == 'hourly') {
+		priceval = '2. high';
+	}
+	else{
+		priceval = '2b. high (USD)';
+
+	}
+	
 	openb.style.color = '';
 	closeb.style.color = '';
 	highb.style.color = 'white';
@@ -100,6 +120,13 @@ highb.addEventListener('click', function(){
 
 
 lowb.addEventListener('click', function(){
+	if (chioce == 'stock' || timeinterval == 'hourly') {
+		priceval = '3. low';
+	}
+	else{
+		priceval = '3b. low (USD)';
+
+	}
 	priceval = '3. low';
 	openb.style.color = '';
 	closeb.style.color = '';
@@ -133,7 +160,6 @@ function change(){
 		else if (chioce == 'crypto'){
 			timeInt = 'DIGITAL_CURRENCY_DAILY';
 			sear = 'Time Series (Digital Currency Daily)';
-			openpr = '1b. open (USD)';
 			
 
 		}
@@ -149,7 +175,6 @@ function change(){
 		else if (chioce == 'crypto'){
 			timeInt = 'CRYPTO_INTRADAY';
 			sear = 'Time Series Crypto (60min)';
-			openpr = '1. open';
 
 		}
 
@@ -157,33 +182,6 @@ function change(){
 	}
 	// console.log(chioce);
 }
-
-// timeintervalch.addEventListener('change', function(){
-// 	change();
-	
-
-// })
-
-
-// historych.addEventListener('change', function(){
-// 	if (historych.value == "full"){
-// 		history1 = historych.value;
-// 	}
-// 	else {
-// 		history1 = historych.value;
-
-// 	}
-// 	// console.log(history1);
-
-// })
-
-
-
-// personalAPIch.addEventListener('change', function(){
-// 	Api_key = personalAPIch.value
-// 	console.log(chioce);
-
-// })
 
 
 
@@ -207,7 +205,6 @@ btn.addEventListener('click', function() {
 	else {
 		stockcod = stock.value;
 		sketch();
-		fetchnewsAPI();
 	}
 	// sketch();
 
@@ -271,12 +268,12 @@ async function fetchcryptoAPI() {
 			return x
 		})
 		.then(data => {
-			// console.log(data['Meta Data']['3. Digital Currency Name']);
+			console.log(data);
 			stockname = data['Meta Data']['3. Digital Currency Name'];
 			for (var key in data[sear]) {
 				// console.log(0);
 				xval.unshift(key);
-				yval.unshift(data[sear][key][openpr]);
+				yval.unshift(data[sear][key][priceval]);
 
 			}
 			
@@ -310,6 +307,8 @@ async function sketch() {
 		await fetchstockAPI();
 
 	}
+	fetchnewsAPI();
+
 
 	// console.log(xval, yval);
 	const win = document.getElementById('chart');
@@ -390,11 +389,11 @@ async function fetchnewsAPI() {
 			let x = response.json()
 			let data = JSON.stringify(x);
 			
-			console.log(data);
+			// console.log(data);
 			return x
 		})
 		.then(data => {
-			console.log(data.articles);
+			// console.log(data.articles);
 			for (var i = 0; i < data.articles.length; ++i) {
 				console.log(data.articles[i].title);
 				var array_div = document.createElement("div");
@@ -429,9 +428,10 @@ async function fetchnewsAPI() {
 
 				// console.log(data.articles[i].url, typeof data.articles[i].url );
 				// array_title.appendChild(array_ele1);
+
+				array_title.appendChild(array_a);
 				
 				array_title.appendChild(array_title2);
-				array_title.appendChild(array_a);
 
 				array_div.appendChild(array_title);
 				array_div.appendChild(array_sum);
