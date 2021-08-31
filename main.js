@@ -230,6 +230,7 @@ async function fetchstockAPI() {
 		})
 		.then(data => {
 			// console.log(data);
+			stockname = '';
 			stockname = stockcod;
 			
 			
@@ -245,6 +246,7 @@ async function fetchstockAPI() {
 		});
 
 		// interval = '';
+		fetchnewsAPI();
 	
 
 	
@@ -268,7 +270,8 @@ async function fetchcryptoAPI() {
 			return x
 		})
 		.then(data => {
-			console.log(data);
+			// console.log(data);
+			stockname = '';
 			stockname = data['Meta Data']['3. Digital Currency Name'];
 			for (var key in data[sear]) {
 				// console.log(0);
@@ -278,7 +281,7 @@ async function fetchcryptoAPI() {
 			}
 			
 		});
-		// console.log(xval, yval);
+		fetchnewsAPI();
 
 	
 
@@ -307,7 +310,7 @@ async function sketch() {
 		await fetchstockAPI();
 
 	}
-	fetchnewsAPI();
+	// fetchnewsAPI();
 
 
 	// console.log(xval, yval);
@@ -381,9 +384,9 @@ async function sketch() {
 
 
 async function fetchnewsAPI() {
+	container.innerHTML = '';
 
-
-	await fetch('https://newsapi.org/v2/everything?q=' + stockcod + '&apiKey=27ebb9c1d2d14584869cfe9184a24f6a',
+	await fetch('https://newsapi.org/v2/everything?q=' + stockcod + '&language=en&apiKey=27ebb9c1d2d14584869cfe9184a24f6a',
 	)
 		.then(response => {
 			let x = response.json()
@@ -395,7 +398,7 @@ async function fetchnewsAPI() {
 		.then(data => {
 			// console.log(data.articles);
 			for (var i = 0; i < data.articles.length; ++i) {
-				console.log(data.articles[i].title);
+				// console.log(data.articles[i].title);
 				var array_div = document.createElement("div");
 				var array_ele1 = document.createElement("img");
 				var array_title = document.createElement("h1");
@@ -423,7 +426,10 @@ async function fetchnewsAPI() {
 				array_a.style.fontSize = `${20}px`;
 				array_title2.style.fontSize = `${7}px`;
 				array_title.style.display = 'block';
-				array_div.style.padding = `${15}px`;
+				array_div.style.paddingLeft = `${30}px`;
+				array_div.style.paddingRight = `${30}px`;
+				array_div.style.paddingTop = `${30}px`;
+				// array_div.style.padding = `${30}px`;
 
 
 				// console.log(data.articles[i].url, typeof data.articles[i].url );
