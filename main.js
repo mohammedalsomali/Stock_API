@@ -357,9 +357,9 @@ async function fetchnewsAPI() {
 				var array_ele1 = document.createElement("img");
 				var array_title = document.createElement("h1");
 				var array_title2 = document.createElement("h1");
-				var array_a = document.createElement("a");
+				var array_a = document.createElement("p");
 
-				var array_sum = document.createElement("summary");
+				var array_sum = document.createElement("p1");
 				
 
 				// array_ele.style.width = 10 + 'px';
@@ -379,8 +379,8 @@ async function fetchnewsAPI() {
 				array_ele1.style.height = `${70}px`;
 				array_a.style.fontSize = `${20}px`;
 				array_title2.style.fontSize = `${7}px`;
-				array_title.style.display = 'grid';
-				array_title.style.display.grid = 'grid-rows';
+				// array_title.style.display = 'block';
+				// array_a.style.float = 'right';
 
 
 				// console.log(data.articles[i].url, typeof data.articles[i].url );
