@@ -90,11 +90,11 @@ body{
   text-align: left;
   cursor: pointer;
   outline: none;
-  transform: rotateY(90);
+  
 }
 
 /* On mouse-over */
-.sidenav a:hover, .dropdown-btn:hover, .Btn:hover, .stockBtn:hover, .cryptoBtn:hover, .dailyBtn:hover, .hourlyBtn:hover {
+.sidenav a:hover, .dropdown-btn:hover, .Btn:hover, .stockBtn:hover, .cryptoBtn:hover, .dailyBtn:hover, .hourlyBtn:hover, .openBtn:hover, .closeBtn:hover, .highBtn:hover, .lowBtn:hover {
   color: #ffffff;
 }
 
@@ -132,7 +132,7 @@ ul {
   /* color: #351f21; */
 }
 
-.Btn, .stockBtn, .cryptoBtn, .dailyBtn, .hourlyBtn  {
+.Btn, .stockBtn, .cryptoBtn, .dailyBtn, .hourlyBtn, .openBtn, .closeBtn, .lowBtn, .highBtn  {
   color: #818181;
 }
 

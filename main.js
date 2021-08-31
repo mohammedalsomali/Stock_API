@@ -17,13 +17,17 @@ var chioce = 0;
 var timeInt = 0;
 var history1 = 0;
 var Api_key = 'MOR0CI3PU3IZ43EN';
+var priceval;
 
 
 const daily = document.querySelector('.dailyBtn');
 const hourly = document.querySelector('.hourlyBtn');
 const stockb = document.querySelector('.stockBtn');
 const crypto = document.querySelector('.cryptoBtn');
-
+const openb = document.querySelector('.openBtn');
+const closeb = document.querySelector('.closeBtn');
+const highb = document.querySelector('.highBtn');
+const lowb = document.querySelector('.lowBtn');
 
 
 
@@ -64,6 +68,46 @@ stockb.addEventListener('click', function(){
 	// console.log(chioce);
 
 })
+
+
+openb.addEventListener('click', function(){
+	priceval = '1. open';
+	openb.style.color = 'white';
+	closeb.style.color = '';
+	highb.style.color = '';
+	lowb.style.color = '';
+
+})
+
+closeb.addEventListener('click', function(){
+	priceval = '4. close';
+	openb.style.color = '';
+	closeb.style.color = 'white';
+	highb.style.color = '';
+	lowb.style.color = '';
+
+})
+
+
+highb.addEventListener('click', function(){
+	priceval = '2. high';
+	openb.style.color = '';
+	closeb.style.color = '';
+	highb.style.color = 'white';
+	lowb.style.color = '';
+
+})
+
+
+lowb.addEventListener('click', function(){
+	priceval = '3. low';
+	openb.style.color = '';
+	closeb.style.color = '';
+	highb.style.color = '';
+	lowb.style.color = 'white';
+
+})
+
 
 
 
@@ -197,7 +241,7 @@ async function fetchstockAPI() {
 			for (var key in data[sear]) {
 				// console.log(0);
 				xval.unshift(key);
-				yval.unshift(data[sear][key]['1. open']);
+				yval.unshift(data[sear][key][priceval]);
 
 			}
 			// console.log(xval, yval);
