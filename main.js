@@ -65,6 +65,10 @@ stockb.addEventListener('click', function(){
 
 })
 
+
+
+
+
 crypto.addEventListener('click', function(){
 	chioce = 'crypto'
 	change();
@@ -336,22 +340,23 @@ async function sketch() {
 async function fetchnewsAPI() {
 
 
-	await fetch('https://newsapi.org/v2/everything?q=' + stockcod + '&from=2021-07-29&sortBy=publishedAt&apiKey=27ebb9c1d2d14584869cfe9184a24f6a',
+	await fetch('https://newsapi.org/v2/everything?q=' + stockcod + '&apiKey=27ebb9c1d2d14584869cfe9184a24f6a',
 	)
 		.then(response => {
 			let x = response.json()
 			let data = JSON.stringify(x);
 			
-			// console.log(data);
+			console.log(data);
 			return x
 		})
 		.then(data => {
-			// console.log(data.articles);
+			console.log(data.articles);
 			for (var i = 0; i < data.articles.length; ++i) {
 				console.log(data.articles[i].title);
 				var array_div = document.createElement("div");
 				var array_ele1 = document.createElement("img");
 				var array_title = document.createElement("h1");
+				var array_title2 = document.createElement("h1");
 				var array_a = document.createElement("a");
 
 				var array_sum = document.createElement("summary");
@@ -365,15 +370,25 @@ async function fetchnewsAPI() {
 				array_a.innerText = data.articles[i].title;
 				array_a.href = data.articles[i].url;
 				array_sum.innerText = data.articles[i].description;
-
 				array_ele1.src = data.articles[i].urlToImage;
-				array_ele1.style.width = `${100}px`;
-				array_ele1.style.height = `${100}px`;
-				array_title.style.display = 'flex';
-				console.log(data.articles[i].url, typeof data.articles[i].url );
-			  
+				array_title2.innerHTML = 'Author: ' + data.articles[i].author;
+
+
+
+				array_ele1.style.width = `${70}px`;
+				array_ele1.style.height = `${70}px`;
+				array_a.style.fontSize = `${20}px`;
+				array_title2.style.fontSize = `${7}px`;
+				array_title.style.display = 'grid';
+				array_title.style.display.grid = 'grid-rows';
+
+
+				// console.log(data.articles[i].url, typeof data.articles[i].url );
 				array_title.appendChild(array_ele1);
+				
+				array_title.appendChild(array_title2);
 				array_title.appendChild(array_a);
+
 				array_div.appendChild(array_title);
 				array_div.appendChild(array_sum);
 				// array_div.appendChild(array_ele1);

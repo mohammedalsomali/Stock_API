@@ -34,6 +34,7 @@ body{
 .right {
     
     width: 85%;
+    
     /* display: grid;
     grid-template-rows: 0.5fr; */
     /* float: left; */
@@ -67,6 +68,7 @@ body{
   height: 100%;
   width: 200px;
   position: fixed;
+  overflow-y: scroll;
   z-index: 1;
   top: 0;
   left: 0;
@@ -135,7 +137,7 @@ ul {
 
 
 input[type=text] {
-  width: 140px;
+  width: 70%;
   height: 30px; 
   /* -webkit-transition: width 0.5s ease-in-out;
   transition: width 0.5s ease-in-out;
@@ -162,9 +164,13 @@ h1 {
 }
 
 
-.inpbox {
-  display: block;
-}
+/* .inpbox {
+  display: inline-block;
+  inset-block;
+  
+
+
+} */
 
 
 /* .searchbtn {
@@ -188,7 +194,7 @@ h1 {
 /* Style the submit button */
 .searchbtn {
   float: right;
-  width: 25%;
+  width: 27%;
   height: 35px;
   background: #4666FF;
   color: white;
