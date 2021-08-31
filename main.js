@@ -379,12 +379,12 @@ async function fetchnewsAPI() {
 				array_ele1.style.height = `${70}px`;
 				array_a.style.fontSize = `${20}px`;
 				array_title2.style.fontSize = `${7}px`;
-				// array_title.style.display = 'block';
-				// array_a.style.float = 'right';
+				array_title.style.display = 'block';
+				array_div.style.padding = `${15}px`;
 
 
 				// console.log(data.articles[i].url, typeof data.articles[i].url );
-				array_title.appendChild(array_ele1);
+				// array_title.appendChild(array_ele1);
 				
 				array_title.appendChild(array_title2);
 				array_title.appendChild(array_a);
