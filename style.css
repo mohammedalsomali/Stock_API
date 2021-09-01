@@ -34,6 +34,8 @@ body{
 .right {
     
     width: 85%;
+    overflow-y:hidden;
+    height: 100%;
     
     /* display: grid;
     grid-template-rows: 0.5fr; */
@@ -212,3 +214,13 @@ h1 {
   clear: both;
   display: table;
 } */
+
+
+
+
+.newsdiv {
+  overflow-y: scroll;
+  height: 25%;
+ 
+}
+
