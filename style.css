@@ -32,34 +32,14 @@ body{
 }
 
 .right {
-    
+    display: flexbox;
+    flex-wrap: wrap;
     width: 85%;
-    overflow-y:hidden;
+    box-sizing: border-box;
+    overflow-y: hidden;
     height: 100%;
-    
-    /* display: grid;
-    grid-template-rows: 0.5fr; */
-    /* float: left; */
-    /* display: flex;
-    flex-wrap: wrap; */
-    /* align-items: center; 
-    justify-content: center; */
-
 }  
 
-
-/* #form1 {
-    display: inline-block;
-    box-sizing: border-box;
-    
-    vertical-align: middle; 
-
-}
-
-
-#subject, #timeint, #history, #API, #stockcode {
-    width: 100%;
-} */
 
 
 
@@ -224,12 +204,19 @@ h1 {
   display: table;
 } */
 
+.chartdiv {
+  height: auto;
+}
 
 
 
 .newsdiv {
+  height: 30%;
+  /* box-sizing: border-box ; */
   overflow-y: scroll;
-  height: 25%;
+
+  /* touch-action: none; */
+  /* user-select: none; */
  
 }
 
