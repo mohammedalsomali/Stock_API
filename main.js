@@ -10,6 +10,7 @@ var timeinterval;
 // const historych = document.querySelector('#history');
 // const personalAPIch = document.querySelector('#API');
 var stockname;
+var sortby;
 var sear = '';
 var interval = '';
 var openor;
@@ -21,6 +22,8 @@ var priceval;
 
 
 const daily = document.querySelector('.dailyBtn');
+const current = document.querySelector('.currentBtn');
+const popular = document.querySelector('.popularBtn');
 const hourly = document.querySelector('.hourlyBtn');
 const stockb = document.querySelector('.stockBtn');
 const crypto = document.querySelector('.cryptoBtn');
@@ -39,6 +42,26 @@ daily.addEventListener('click', function(){
 	// console.log(timeinterval);
 	hourly.style.color = '';
 	daily.style.color = 'white';
+	change();
+	// console.log(chioce);
+
+})
+
+current.addEventListener('click', function(){
+	sortby = 'publishedAt'
+	// console.log(timeinterval);
+	popular.style.color = '';
+	current.style.color = 'white';
+	change();
+	// console.log(chioce);
+
+})
+
+popular.addEventListener('click', function(){
+	sortby = 'popularity'
+	// console.log(timeinterval);
+	current.style.color = '';
+	popular.style.color = 'white';
 	change();
 	// console.log(chioce);
 
@@ -83,6 +106,8 @@ openb.addEventListener('click', function(){
 	closeb.style.color = '';
 	highb.style.color = '';
 	lowb.style.color = '';
+	change();
+
 
 })
 
@@ -98,7 +123,7 @@ closeb.addEventListener('click', function(){
 	closeb.style.color = 'white';
 	highb.style.color = '';
 	lowb.style.color = '';
-
+	change();
 })
 
 
@@ -115,6 +140,7 @@ highb.addEventListener('click', function(){
 	closeb.style.color = '';
 	highb.style.color = 'white';
 	lowb.style.color = '';
+	change();
 
 })
 
@@ -132,6 +158,7 @@ lowb.addEventListener('click', function(){
 	closeb.style.color = '';
 	highb.style.color = '';
 	lowb.style.color = 'white';
+	change();
 
 })
 
@@ -385,8 +412,8 @@ async function sketch() {
 
 async function fetchnewsAPI() {
 	container.innerHTML = '';
-
-	await fetch('https://newsapi.org/v2/everything?q=' + stockcod + '&language=en&apiKey=27ebb9c1d2d14584869cfe9184a24f6a',
+	
+	await fetch('https://newsapi.org/v2/everything?q=' + stockcod + '&language=en&sortBy=' + sortby +'&apiKey=27ebb9c1d2d14584869cfe9184a24f6a',
 	)
 		.then(response => {
 			let x = response.json()
@@ -400,7 +427,7 @@ async function fetchnewsAPI() {
 			for (var i = 0; i < data.articles.length; ++i) {
 				// console.log(data.articles[i].title);
 				var array_div = document.createElement("div");
-				var array_ele1 = document.createElement("img");
+				// var array_ele1 = document.createElement("img");
 				var array_title = document.createElement("h1");
 				var array_title2 = document.createElement("h1");
 				var array_a = document.createElement("p");
@@ -412,17 +439,17 @@ async function fetchnewsAPI() {
 
 				
 				array_div.classList.add("block");
-				array_ele1.classList.add("blockimg");
+				// array_ele1.classList.add("blockimg");
 				array_a.innerText = data.articles[i].title;
 				array_a.href = data.articles[i].url;
 				array_sum.innerText = data.articles[i].description;
-				array_ele1.src = data.articles[i].urlToImage;
+				// array_ele1.src = data.articles[i].urlToImage;
 				array_title2.innerHTML = 'Author: ' + data.articles[i].author;
 
 
 
-				array_ele1.style.width = `${70}px`;
-				array_ele1.style.height = `${70}px`;
+				// array_ele1.style.width = `${70}px`;
+				// array_ele1.style.height = `${70}px`;
 				array_a.style.fontSize = `${20}px`;
 				array_title2.style.fontSize = `${7}px`;
 				array_title.style.display = 'block';

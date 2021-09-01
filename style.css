@@ -33,11 +33,11 @@ body{
 }
 
 
-@media only screen and (max-width: 150px) {
+/* @media only screen and (max-width: 150px) {
   .left {
       display: none;
   }
-}
+} */
 
 .right {
     display: grid;
@@ -86,7 +86,7 @@ body{
 }
 
 /* On mouse-over */
-.sidenav a:hover, .dropdown-btn:hover, .Btn:hover, .stockBtn:hover, .cryptoBtn:hover, .dailyBtn:hover, .hourlyBtn:hover, .openBtn:hover, .closeBtn:hover, .highBtn:hover, .lowBtn:hover {
+.sidenav a:hover, .dropdown-btn:hover, .Btn:hover, .stockBtn:hover, .cryptoBtn:hover, .dailyBtn:hover, .hourlyBtn:hover, .openBtn:hover, .closeBtn:hover, .highBtn:hover, .lowBtn:hover, .currentBtn:hover, .popularBtn:hover {
   color: #ffffff;
   box-shadow: 0 0 5px #33ffff,
               0 0 5px #33ffff;
@@ -126,7 +126,7 @@ ul {
   /* color: #351f21; */
 }
 
-.Btn, .stockBtn, .cryptoBtn, .dailyBtn, .hourlyBtn, .openBtn, .closeBtn, .lowBtn, .highBtn  {
+.Btn, .stockBtn, .cryptoBtn, .dailyBtn, .hourlyBtn, .openBtn, .closeBtn, .lowBtn, .highBtn, .currentBtn, .popularBtn  {
   color: #818181;
 }
 
