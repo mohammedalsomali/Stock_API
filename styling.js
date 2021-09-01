@@ -2,6 +2,7 @@
 
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
+var rightdiv = document.querySelector('.left');
 
 for (i = 0; i < dropdown.length; i++) {
   dropdown[i].addEventListener("click", function() {
@@ -14,6 +15,14 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
+
+
+if (rightdiv.width < 150){
+  rightdiv.style.display == 'none';
+}
+// else {
+
+// }
 
 // window.addEventListener('DOMContentLoaded', (event) => {
 

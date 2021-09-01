@@ -24,12 +24,19 @@ body{
     background-color:#111;
     /* display: block; */
     overflow-x: hidden;
-    min-width: 150px;
+    /* min-width: 150px; */
     /* float: left; */
     /* display: flex;
     flex-wrap: wrap; */
     
     
+}
+
+
+@media only screen and (max-width: 150px) {
+  .left {
+      display: none;
+  }
 }
 
 .right {
