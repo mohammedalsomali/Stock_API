@@ -24,6 +24,7 @@ body{
     background-color:#111;
     /* display: block; */
     overflow-x: hidden;
+    min-width: 150px;
     /* float: left; */
     /* display: flex;
     flex-wrap: wrap; */
@@ -32,9 +33,11 @@ body{
 }
 
 .right {
-    display: flexbox;
-    flex-wrap: wrap;
+    display: grid;
+    /* grid-template-rows: minmax(400px, 70%) 1fr; */
     width: 85%;
+    /* min-width: 890px; */
+    /* max-width: 85%; */
     box-sizing: border-box;
     overflow-y: hidden;
     height: 100%;
@@ -205,13 +208,15 @@ h1 {
 } */
 
 .chartdiv {
-  height: auto;
+  /* height: 70%; */
+  width: 99%;
 }
 
 
 
 .newsdiv {
-  height: 30%;
+  /* height: ; */
+  width: 100%;
   /* box-sizing: border-box ; */
   overflow-y: scroll;
 
