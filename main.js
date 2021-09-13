@@ -273,7 +273,7 @@ async function fetchstockAPI() {
 		});
 
 		// interval = '';
-// 		fetchnewsAPI();
+		await fetchnewsAPI();
 	
 
 	
@@ -308,7 +308,7 @@ async function fetchcryptoAPI() {
 			}
 			
 		});
-// 		fetchnewsAPI();
+		awiat fetchnewsAPI();
 
 
 	
@@ -332,16 +332,17 @@ async function sketch() {
 
 	if (chioce == "crypto") {
 		await fetchcryptoAPI();
-		await fetchnewsAPI();
+// 		await fetchnewsAPI();
 		
 	}
 	else {
 
 		await fetchstockAPI();
-		await fetchnewsAPI();
+// 		await fetchnewsAPI();
 		
 
 	}
+
 
 
 	// console.log(xval, yval);
