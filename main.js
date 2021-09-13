@@ -332,13 +332,16 @@ async function sketch() {
 
 	if (chioce == "crypto") {
 		await fetchcryptoAPI();
+		await fetchnewsAPI();
+		
 	}
 	else {
 
 		await fetchstockAPI();
+		await fetchnewsAPI();
+		
 
 	}
-	await fetchnewsAPI();
 
 
 	// console.log(xval, yval);
