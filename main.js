@@ -273,7 +273,7 @@ async function fetchstockAPI() {
 		});
 
 		// interval = '';
-		await fetchnewsAPI();
+		// await fetchnewsAPI();
 	
 
 	
@@ -308,7 +308,7 @@ async function fetchcryptoAPI() {
 			}
 			
 		});
-		await fetchnewsAPI();
+		// await fetchnewsAPI();
 
 
 	
@@ -342,7 +342,7 @@ async function sketch() {
 		
 
 	}
-	// await fetchnewsAPI();
+	await fetchnewsAPI();
 
 
 
