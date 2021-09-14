@@ -308,7 +308,7 @@ async function fetchcryptoAPI() {
 			}
 			
 		});
-		awiat fetchnewsAPI();
+		await fetchnewsAPI();
 
 
 	
@@ -342,6 +342,8 @@ async function sketch() {
 		
 
 	}
+	// await fetchnewsAPI();
+
 
 
 
