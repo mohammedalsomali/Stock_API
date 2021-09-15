@@ -3,22 +3,22 @@ let yval = [];
 const stock = document.querySelector('#stockcode');
 const btn = document.querySelector('.searchbtn');
 var container = document.querySelector('.newsdiv');
-var stockcod = 0;
+var stockcod = 'AMC';
 var myChart;
 // const stocktype = document.querySelector('#subject');
 var timeinterval;
 // const historych = document.querySelector('#history');
 // const personalAPIch = document.querySelector('#API');
 var stockname;
-var sortby;
+var sortby = 'published_desc';
 var sear = '';
-var interval = '';
+var interval = 'daily';
 var openor;
-var chioce = 0;
-var timeInt = 0;
-var history1 = 0;
+var chioce = 'stock';
+var timeInt = 'TIME_SERIES_DAILY';
+// var history1 = 0;
 var Api_key = 'MOR0CI3PU3IZ43EN';
-var priceval;
+var priceval = '1. open';
 
 
 const daily = document.querySelector('.dailyBtn');
@@ -48,7 +48,7 @@ daily.addEventListener('click', function(){
 })
 
 current.addEventListener('click', function(){
-	sortby = 'publishedAt'
+	sortby = 'published_desc'
 	// console.log(timeinterval);
 	popular.style.color = '';
 	current.style.color = 'white';
@@ -420,18 +420,19 @@ async function sketch() {
 async function fetchnewsAPI() {
 	container.innerHTML = '';
 	
-	await fetch('https://newsapi.org/v2/everything?q=' + stockcod + '&language=en&sortBy=' + sortby +'&apiKey=27ebb9c1d2d14584869cfe9184a24f6a',
+	await fetch('http://api.mediastack.com/v1/news?access_key=d930e47b4cc358e42ecbb1242e946d96&languages=en&keywords=' + stockcod + '&categories=business&sort=' + sortby,
 	)
 		.then(response => {
 			let x = response.json()
 			let data = JSON.stringify(x);
 			
 			// console.log(data);
+			// console.log(x);
 			return x
 		})
 		.then(data => {
-			// console.log(data.articles);
-			for (var i = 0; i < data.articles.length; ++i) {
+			// console.log(data.data);
+			for (var i = 0; i < data.data.length; ++i) {
 				// console.log(data.articles[i].title);
 				var array_div = document.createElement("div");
 				// var array_ele1 = document.createElement("img");
@@ -447,11 +448,11 @@ async function fetchnewsAPI() {
 				
 				array_div.classList.add("block");
 				// array_ele1.classList.add("blockimg");
-				array_a.innerText = data.articles[i].title;
-				array_a.href = data.articles[i].url;
-				array_sum.innerText = data.articles[i].description;
+				array_a.innerText = data.data[i].title;
+				array_a.href = data.data[i].url;
+				array_sum.innerText = data.data[i].description;
 				// array_ele1.src = data.articles[i].urlToImage;
-				array_title2.innerHTML = 'Author: ' + data.articles[i].author;
+				array_title2.innerHTML = 'Author: ' + data.data[i].author;
 
 
 
