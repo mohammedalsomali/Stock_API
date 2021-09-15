@@ -10,15 +10,15 @@ var timeinterval;
 // const historych = document.querySelector('#history');
 // const personalAPIch = document.querySelector('#API');
 var stockname;
-var sortby = 'published_desc';
+var sortby = '';
 var sear = '';
-var interval = 'daily';
+var interval = '';
 var openor;
-var chioce = 'stock';
-var timeInt = 'TIME_SERIES_DAILY';
+var chioce = '';
+var timeInt = '';
 // var history1 = 0;
 var Api_key = 'MOR0CI3PU3IZ43EN';
-var priceval = '1. open';
+var priceval = '';
 
 
 const daily = document.querySelector('.dailyBtn');
@@ -297,7 +297,7 @@ async function fetchcryptoAPI() {
 			return x
 		})
 		.then(data => {
-			// console.log(data);
+			console.log(data);
 			stockname = '';
 			stockname = data['Meta Data']['3. Digital Currency Name'];
 			for (var key in data[sear]) {
@@ -420,7 +420,7 @@ async function sketch() {
 async function fetchnewsAPI() {
 	container.innerHTML = '';
 	
-	await fetch('http://api.mediastack.com/v1/news?access_key=d930e47b4cc358e42ecbb1242e946d96&languages=en&keywords=' + stockcod + '&categories=business&sort=' + sortby,
+	await fetch('https://cors-anywhere.herokuapp.com/http://api.mediastack.com/v1/news?access_key=d930e47b4cc358e42ecbb1242e946d96&languages=en&keywords=' + stockcod + '&categories=business&sort=' + sortby,
 	)
 		.then(response => {
 			let x = response.json()
