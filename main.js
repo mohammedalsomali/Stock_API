@@ -18,6 +18,7 @@ var chioce = '';
 var timeInt = '';
 // var history1 = 0;
 var Api_key = 'MOR0CI3PU3IZ43EN';
+
 var priceval = '';
 
 
