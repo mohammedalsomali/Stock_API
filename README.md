@@ -1,5 +1,5 @@
 # Stock_API
-this project uses the Alphavantage API to  visualize a certain company's stock over time, while also using NewsAPI to look up relevant news articles. unfortuanatly Alphavantage does not allow API calls from git pages. so please clone this repo and run it on yourt local machine to see the results of your search.
+this project uses the Alpha Vantage API to visualize a certain company's stock over time, while also using NewsAPI to look up relevant news articles. to have access to the website please click on this link https://cors-anywhere.herokuapp.com/corsdemo first and request temporary access to CORS DEMO.
 
 check out the website: https://mohammedalsomali.github.io/Stock_API/
 
