@@ -16,29 +16,25 @@ body{
     
     
     
+    
 }
 
 
 
 .left {
     width: 15%;
-    background-color:#111;
-    /* display: block; */
-    /* overflow-x: hidden; */
-    /* min-width: 150px; */
-    /* float: left; */
-    /* display: flex;
-    flex-wrap: wrap; */
+    background-color: #111;
+    
     
     
 }
 
 
-/* @media only screen and (max-width: 150px) {
+@media only screen and (max-width: 150px) {
   .left {
       display: none;
   }
-} */
+}
 
 .right {
     /* display: grid;

@@ -439,9 +439,9 @@ async function fetchnewsAPI() {
 				// var array_ele1 = document.createElement("img");
 				var array_title = document.createElement("h1");
 				var array_title2 = document.createElement("h1");
-				var array_a = document.createElement("p");
+				var array_a = document.createElement("a");
 
-				var array_sum = document.createElement("p1");
+				var array_sum = document.createElement("p");
 				
 
 				// array_ele.style.width = 10 + 'px';
